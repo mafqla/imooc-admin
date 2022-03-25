@@ -16,13 +16,13 @@ module.exports = {
   messages: {
     type: '选择你的提交类型:',
     customScope: '选择你的修改范围(可选):',
-    subject: '请输入提交的主题',
-    body: '请输入详细内容',
+    subject: '请简要描述提交(必填):',
+    body: '请输入详细内容(可选):',
     footer: '请输入要关闭的issue(可选):',
     confirmCommit: '确认提交？(y/n)'
   },
   // 跳过问题
-  // skipQuestions: ['body', 'footer'],
+  skipQuestions: ['body', 'footer'],
   // subject文字长度默认72
   subjectLimit: 72,
 }
