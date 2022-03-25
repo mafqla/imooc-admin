@@ -1,6 +1,6 @@
 module.exports = {
   // 继承规则
-  exports: ['@commitlint/config-conventional'],
+  extends: ['@commitlint/config-conventional'],
   // 定义规则
   roles: {
     // type的类型定义
@@ -11,7 +11,6 @@ module.exports = {
       // 在什么情况可以验证
       'always',
       // 泛型内容
-
       [
         'feat', // 新功能
         'fix', // 修复
@@ -28,5 +27,4 @@ module.exports = {
     // subject大小写不做校验
     'subject-case': [0]
   }
-
 }

@@ -36,6 +36,9 @@
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2"
   },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
   "lint-staged": {
     "src/**/*.{js,vue}" :[
       "eslint --fix",
