@@ -9,8 +9,10 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "axios": "^0.26.1",
     "core-js": "^3.6.5",
     "element-plus": "^1.0.2-beta.28",
+    "md5": "^2.3.0",
     "vue": "^3.2.8",
     "vue-router": "^4.0.11",
     "vuex": "^4.0.2"
@@ -36,6 +38,7 @@
     "husky": "^7.0.1",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
+    "svg-sprite-loader": "^6.0.9",
     "vue-cli-plugin-element-plus": "~0.0.13"
   },
   "config": {
