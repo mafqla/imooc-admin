@@ -9,8 +9,8 @@ export const login = data => {
     method: 'POST',
     data,
     headers: {
-      codeType: '1648397682',
-      icode: '3a4ab474c75a2c19e0e5f8dc748879e9'
+      codeType: '1648476044',
+      icode: 'ad71b1490d7022d21fe3f5c7a99ac867'
     }
   })
 }
