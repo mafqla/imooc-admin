@@ -1,13 +1,13 @@
 #app {
   .main-container {
     min-height: 100%;
-    transition: margin-left 0.28s;
+    transition: margin-left #{$sideBarDuration};
     margin-left: $sideBarWidth;
     position: relative;
   }
 
   .sidebar-container {
-    transition: width 0.28s;
+    transition: width #{$sideBarDuration};
     width: $sideBarWidth !important;
     height: 100%;
     position: fixed;

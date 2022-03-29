@@ -9,8 +9,21 @@ export const login = data => {
     method: 'POST',
     data,
     headers: {
-      codeType: '1648476044',
-      icode: 'ad71b1490d7022d21fe3f5c7a99ac867'
+      codeType: '1648485623',
+      icode: 'df1f78bc91d4d0f72abddb548529c673'
+    }
+  })
+}
+
+/**
+ * 获取用户信息
+ */
+export const getUserInfo = () => {
+  return request({
+    url: '/sys/profile',
+    headers: {
+      codeType: '1648485623',
+      icode: 'df1f78bc91d4d0f72abddb548529c673'
     }
   })
 }
