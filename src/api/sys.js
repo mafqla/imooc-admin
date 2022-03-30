@@ -7,11 +7,7 @@ export const login = data => {
   return request({
     url: '/sys/login',
     method: 'POST',
-    data,
-    headers: {
-      codeType: '1648485623',
-      icode: 'df1f78bc91d4d0f72abddb548529c673'
-    }
+    data
   })
 }
 
@@ -20,10 +16,6 @@ export const login = data => {
  */
 export const getUserInfo = () => {
   return request({
-    url: '/sys/profile',
-    headers: {
-      codeType: '1648485623',
-      icode: 'df1f78bc91d4d0f72abddb548529c673'
-    }
+    url: '/sys/profile'
   })
 }

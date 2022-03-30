@@ -11,17 +11,16 @@ module.exports = {
       // 当地址中有/api的时候会触发代理机制
       '/api': {
         // 要代理的服务器地址  这里不用写 api
-        target: 'https://api.imooc-admin.lgdsunday.club/',
+        // target: 'https://api.imooc-admin.lgdsunday.club/',
+        target: 'http://127.0.0.1:4523/mock/797275',
         changeOrigin: true // 是否跨域
       }
     }
   },
   chainWebpack(config) {
     // 设置 svg-sprite-loader
-    config.module
-      .rule('svg')
-      .exclude.add(resolve('src/icons'))
-      .end()
+    config.module.rule('svg').exclude.add(resolve('src/icons')).end()
+    config.resolve.alias.set('vue-i18n', 'vue-i18n/dist/vue-i18n.cjs.js')
     config.module
       .rule('icons')
       .test(/\.svg$/)

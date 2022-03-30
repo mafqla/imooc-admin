@@ -7,6 +7,7 @@
     :text-color="$store.getters.cssVar.menuText"
     :active-text-color="$store.getters.cssVar.menuActiveText"
     :unique-opened="true"
+    :collapse-transition="false"
     router
   >
     <sidebar-item
