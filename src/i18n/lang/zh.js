@@ -45,6 +45,7 @@ export default {
     themeChange: '主题更换'
   },
   universal: {
+    title: '提示',
     confirm: '确定',
     cancel: '取消'
   },
