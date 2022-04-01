@@ -149,6 +149,9 @@ $cursor: #fff;
       display: inline-block;
       height: 47px;
       width: 85%;
+      --el-input-focus-border-color: none;
+      --el-input-border-color: none;
+      --el-input-hover-border-color: none;
 
       input {
         background: transparent;
