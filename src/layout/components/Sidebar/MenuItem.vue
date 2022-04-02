@@ -24,8 +24,7 @@ defineProps({
     required: true
   },
   iconName: {
-    type: String,
-    required: false
+    type: String
   }
 })
 </script>
