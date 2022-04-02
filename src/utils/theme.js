@@ -19,7 +19,7 @@ export const writeNewStyle = (elNewStyle) => {
 export const generateNewStyle = async (primaryColor) => {
   // 1. 根据主色生成色值表
   const colors = generateColors(primaryColor)
-  console.log('colors', colors)
+  // console.log('colors', colors)
   // 2. 获取当前 element-plus 的默认样式，并且把需要进行替换的色值打上标记
   let cssText = await getOriginalStyle()
   // 3.遍历生成的色值表，在默认样式进行全局替换
