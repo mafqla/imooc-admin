@@ -6,12 +6,12 @@
   >
     <div>
       <el-tooltip :content="$t('msg.navBar.lang')" :effect="effect">
-        <svg-icon icon="language" />
+        <svg-icon id="guide-lang" icon="language" />
       </el-tooltip>
     </div>
     <template #dropdown>
       <el-dropdown-menu>
-        <el-dropdown-item :disabled="language === 'zh'"  command="zh">
+        <el-dropdown-item :disabled="language === 'zh'" command="zh">
           中文
         </el-dropdown-item>
         <el-dropdown-item :disabled="language === 'en'" command="en">
