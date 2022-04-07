@@ -2,7 +2,9 @@
   <div class="user-manage-container">
     <el-card class="header">
       <div>
-        <el-button type="primary"> {{ $t('msg.excel.importExcel') }}</el-button>
+        <el-button type="primary" @click="onImportExcelClick">
+          {{ $t('msg.excel.importExcel') }}</el-button
+        >
         <el-button type="success">
           {{ $t('msg.excel.exportExcel') }}
         </el-button>
@@ -47,16 +49,19 @@
           fixed="right"
           width="260"
         >
-          <template #default>
+          <template #default="{ row }">
             <el-button type="primary" size="default">{{
               $t('msg.excel.show')
             }}</el-button>
             <el-button type="info" size="default">{{
               $t('msg.excel.showRole')
             }}</el-button>
-            <el-button type="danger" size="default">{{
-              $t('msg.excel.remove')
-            }}</el-button>
+            <el-button
+              type="danger"
+              size="default"
+              @click="onRemoveClick(row)"
+              >{{ $t('msg.excel.remove') }}</el-button
+            >
           </template>
         </el-table-column>
       </el-table>
@@ -77,10 +82,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { getUserManageList } from '@/api/user-manage'
+import { ref, onActivated } from 'vue'
+import { getUserManageList, deleteUser } from '@/api/user-manage'
 import { watchSwitchLang } from '@/utils/i18n'
-
+import { useRouter } from 'vue-router'
+import { ElMessage, ElMessageBox } from 'element-plus'
+import { useI18n } from 'vue-i18n'
 // 数据相关
 const tableData = ref([])
 const total = ref(0)
@@ -98,6 +105,8 @@ const getListData = async () => {
 getListData()
 // 监听语言切换
 watchSwitchLang(getListData)
+// 处理导入用户后数据不重新加载的问题
+onActivated(getListData)
 
 // 分页相关
 /**
@@ -114,6 +123,33 @@ const handleSizeChange = (currentSize) => {
 const handleCurrentChange = (currentPage) => {
   page.value = currentPage
   getListData()
+}
+
+const router = useRouter()
+/**
+ * excel 导入点击事件
+ */
+const onImportExcelClick = () => {
+  router.push('/user/import')
+}
+/**
+ * 删除按钮点击事件
+ */
+const i18n = useI18n()
+const onRemoveClick = (row) => {
+  ElMessageBox.confirm(
+    i18n.t('msg.excel.dialogTitle1') +
+      row.username +
+      i18n.t('msg.excel.dialogTitle2'),
+    {
+      type: 'warning'
+    }
+  ).then(async () => {
+    await deleteUser(row._id)
+    ElMessage.success(i18n.t('msg.excel.removeSuccess'))
+    // 重新渲染数据
+    getListData()
+  })
 }
 </script>
 

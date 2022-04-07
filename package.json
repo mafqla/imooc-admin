@@ -23,7 +23,8 @@
     "vue": "^3.2.8",
     "vue-i18n": "^9.2.0-beta.33",
     "vue-router": "^4.0.11",
-    "vuex": "^4.0.2"
+    "vuex": "^4.0.2",
+    "xlsx": "^0.17.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
