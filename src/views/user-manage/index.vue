@@ -50,9 +50,12 @@
           width="260"
         >
           <template #default="{ row }">
-            <el-button type="primary" size="default">{{
-              $t('msg.excel.show')
-            }}</el-button>
+            <el-button
+              type="primary"
+              size="default"
+              @click="onShowClick(row._id)"
+              >{{ $t('msg.excel.show') }}</el-button
+            >
             <el-button type="info" size="default">{{
               $t('msg.excel.showRole')
             }}</el-button>
@@ -133,6 +136,12 @@ const router = useRouter()
  */
 const onImportExcelClick = () => {
   router.push('/user/import')
+}
+/**
+ * 查看用户详情按钮点击事件
+ */
+const onShowClick = id => {
+  router.push(`/user/info/${id}`)
 }
 /**
  * 删除按钮点击事件
