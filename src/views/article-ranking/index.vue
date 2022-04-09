@@ -25,12 +25,18 @@
             {{ $filters.relativeTime(row.publicDate) }}
           </template>
           <template #default="{ row }" v-else-if="item.prop === 'action'">
-            <el-button type="primary" size="default" @click="onShowClick(row)">{{
-              $t('msg.article.show')
-            }}</el-button>
-            <el-button type="danger" size="default" @click="onRemoveClick(row)">{{
-              $t('msg.article.remove')
-            }}</el-button>
+            <el-button
+              type="primary"
+              size="default"
+              @click="onShowClick(row)"
+              >{{ $t('msg.article.show') }}</el-button
+            >
+            <el-button
+              type="danger"
+              size="default"
+              @click="onRemoveClick(row)"
+              >{{ $t('msg.article.remove') }}</el-button
+            >
           </template>
         </el-table-column>
       </el-table>
@@ -52,10 +58,12 @@
 
 <script setup>
 import { ref, onActivated, onMounted } from 'vue'
-import { getArticleList } from '@/api/article'
+import { getArticleList, deleteArticle } from '@/api/article'
 import { watchSwitchLang } from '@/utils/i18n'
 import { dynamicData, selectDynamicLabel, tableColumns } from './dynamic'
 import { tableRef, initSortable } from './sortable'
+import { ElMessageBox, ElMessage } from 'element-plus'
+import { useI18n } from 'vue-i18n'
 
 // 数据相关
 const tableData = ref([])
@@ -95,6 +103,24 @@ const handleCurrentChange = (currentPage) => {
 onMounted(() => {
   initSortable(tableData, getListData)
 })
+
+// 删除用户
+const i18n = useI18n()
+const onRemoveClick = (row) => {
+  ElMessageBox.confirm(
+    i18n.t('msg.article.dialogTitle1') +
+      row.title +
+      i18n.t('msg.article.dialogTitle2'),
+    {
+      type: 'warning'
+    }
+  ).then(async () => {
+    await deleteArticle(row._id)
+    ElMessage.success(i18n.t('msg.article.removeSuccess'))
+    // 重新渲染数据
+    getListData()
+  })
+}
 </script>
 
 <style lang="scss" scoped>
