@@ -25,10 +25,10 @@
             {{ $filters.relativeTime(row.publicDate) }}
           </template>
           <template #default="{ row }" v-else-if="item.prop === 'action'">
-            <el-button type="primary" size="mini" @click="onShowClick(row)">{{
+            <el-button type="primary" size="default" @click="onShowClick(row)">{{
               $t('msg.article.show')
             }}</el-button>
-            <el-button type="danger" size="mini" @click="onRemoveClick(row)">{{
+            <el-button type="danger" size="default" @click="onRemoveClick(row)">{{
               $t('msg.article.remove')
             }}</el-button>
           </template>
@@ -51,10 +51,11 @@
 </template>
 
 <script setup>
-import { ref, onActivated } from 'vue'
+import { ref, onActivated, onMounted } from 'vue'
 import { getArticleList } from '@/api/article'
 import { watchSwitchLang } from '@/utils/i18n'
 import { dynamicData, selectDynamicLabel, tableColumns } from './dynamic'
+import { tableRef, initSortable } from './sortable'
 
 // 数据相关
 const tableData = ref([])
@@ -90,6 +91,10 @@ const handleCurrentChange = (currentPage) => {
   page.value = currentPage
   getListData()
 }
+// 表格拖拽相关
+onMounted(() => {
+  initSortable(tableData, getListData)
+})
 </script>
 
 <style lang="scss" scoped>
@@ -115,5 +120,10 @@ const handleCurrentChange = (currentPage) => {
     margin-top: 20px;
     text-align: center;
   }
+}
+:deep .sortable-ghost {
+  opacity: 0.6;
+  color: #fff !important;
+  background: #304156 !important;
 }
 </style>
