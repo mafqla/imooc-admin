@@ -82,7 +82,7 @@ const logout = () => {
     float: right;
     // padding-right: 16px;
 
-    ::v-deep .avatar-container {
+    :deep .avatar-container {
       cursor: pointer;
       .avatar-wrapper {
         margin-top: 5px;
@@ -93,7 +93,7 @@ const logout = () => {
         }
       }
     }
-    ::v-deep .right-menu-item {
+    :deep .right-menu-item {
       display: inline-block;
       padding: 0 18px 0 0;
       font-size: 24px;

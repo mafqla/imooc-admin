@@ -91,7 +91,7 @@ const loading = ref(false)
 const loginFromRef = ref(null)
 const store = useStore()
 const handleLogin = () => {
-  loginFromRef.value.validate(valid => {
+  loginFromRef.value.validate((valid) => {
     if (!valid) return
 
     loading.value = true
@@ -101,7 +101,7 @@ const handleLogin = () => {
         loading.value = false
         // TODO: 登录后操作
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err)
         loading.value = false
       })
@@ -129,14 +129,14 @@ $cursor: #fff;
     margin: 0 auto;
     overflow: hidden;
 
-    ::v-deep .el-form-item {
+    :deep .el-form-item {
       border: 1px solid rgba(255, 255, 255, 0.1);
       background: rgba(0, 0, 0, 0.1);
       border-radius: 5px;
       color: #454545;
     }
 
-    ::v-deep .el-input {
+    :deep .el-input {
       display: inline-block;
       height: 47px;
       width: 85%;

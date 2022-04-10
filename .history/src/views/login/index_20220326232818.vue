@@ -10,7 +10,11 @@
               <avatar />
             </el-icon>
           </span>
-          <el-input placeholder="username" name="username"  type="text"></el-input>
+          <el-input
+            placeholder="username"
+            name="username"
+            type="text"
+          ></el-input>
         </el-form-item>
 
         <!-- password -->
@@ -23,12 +27,14 @@
           <el-input placeholder="password" name="password"></el-input>
         </el-form-item>
         <span class="show-pwd">
-            <el-icon>
-              <avatar />
-            </el-icon>
+          <el-icon>
+            <avatar />
+          </el-icon>
         </span>
       </div>
-      <el-button type="primary" style="width: 100%; margin-bottom: 30px">登录</el-button>
+      <el-button type="primary" style="width: 100%; margin-bottom: 30px"
+        >登录</el-button
+      >
     </el-form>
   </div>
 </template>
@@ -58,14 +64,14 @@ $cursor: #fff;
     margin: 0 auto;
     overflow: hidden;
 
-    ::v-deep .el-form-item {
+    :deep .el-form-item {
       border: 1px solid rgba(255, 255, 255, 0.1);
       background: rgba(0, 0, 0, 0.1);
       border-radius: 5px;
       color: #454545;
     }
 
-    ::v-deep .el-input {
+    :deep .el-input {
       display: inline-block;
       height: 47px;
       width: 85%;
@@ -82,7 +88,6 @@ $cursor: #fff;
       }
     }
   }
-
 
   .svg-container {
     padding: 6px 5px 6px 15px;
@@ -113,5 +118,4 @@ $cursor: #fff;
     user-select: none;
   }
 }
-
 </style>
