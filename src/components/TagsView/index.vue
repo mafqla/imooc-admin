@@ -5,8 +5,8 @@
         class="tags-view-item"
         :class="isActive(tag) ? 'active' : ''"
         :style="{
-          backgroundColor: isActive(tag) ? $store.getters.cssVar.menuBg : '',
-          borderColor: isActive(tag) ? $store.getters.cssVar.menuBg : ''
+          backgroundColor: isActive(tag) ? $store.getters.cssVar.tagViewsList : '',
+          borderColor: isActive(tag) ? $store.getters.cssVar.tagViewsList : ''
         }"
         v-for="(tag, index) in $store.getters.tagsViewList"
         :key="tag.fullPath"

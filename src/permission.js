@@ -1,5 +1,6 @@
 import router from './router'
 import store from './store'
+import { generateTitle } from '@/utils/i18n'
 
 // 白名单
 const whiteList = ['/login']
@@ -13,6 +14,13 @@ router.beforeEach(async (to, from, next) => {
   // 存在 token ，进入主页
   // if (store.state.user.token) {
   // 快捷访问
+
+  if (to.meta.title) {
+    const main = 'mooc-admin'
+    const center = ' | '
+    const title = to.meta.title
+    document.title = generateTitle(title) + center + main
+  }
   if (store.getters.token) {
     if (to.path === '/login') {
       next('/')
