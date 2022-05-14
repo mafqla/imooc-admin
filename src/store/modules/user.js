@@ -1,5 +1,4 @@
 import { login, getUserInfo } from '@/api/sys'
-import md5 from 'md5'
 import { setItem, getItem, removeAllItem } from '@/utils/storage'
 import { TOKEN } from '@/constant'
 import router, { resetRouter } from '@/router'
@@ -30,7 +29,7 @@ export default {
       return new Promise((resolve, reject) => {
         login({
           username,
-          password: md5(password)
+          password: password
         })
           .then((data) => {
             this.commit('user/setToken', data.token)
