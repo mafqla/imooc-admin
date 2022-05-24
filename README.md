@@ -28,4 +28,5 @@ npm run lint
 
 ### 项目后台搭建中
 
- > 为了杜绝卖课的拿我的后台，请联系我，我会给你一个免费的后台，谢谢！QQ群: 722252700
+- 地址[imooc-api](https://github.com/mafqla/imooc-api.git/)
+- 还剩下三个接口未能解决
